@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sub result</title>
+</head>
+<body>
+<h1>Result</h1>
+<p style="white-space: pre-line" th:text="'userId: ' + ${text.cont(text.text1)}" />
+<p style="white-space: pre-line" th:text="'content: ' + ${text.text1} + ${text.text2}" />
+<a href="/">Submit another message</a>
+</body>
+</html>

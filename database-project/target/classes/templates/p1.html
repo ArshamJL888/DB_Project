@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email/Phone Number Sender</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Email/Phone Number Sender</h1>
+    <form id="dataForm">
+      <div class="form-group">
+        <label for="contact">Email/Phone Number</label>
+        <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter email or phone number">
+        <small id="contactHelp" class="form-text text-muted">Please enter a valid email or phone number.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const form = document.getElementById('dataForm');
+    const contactInput = document.getElementById('contact');
+    const contactHelp = document.getElementById('contactHelp');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const contact = contactInput.value;
+
+      if (!validateContact(contact)) {
+        contactHelp.innerText = 'Please enter a valid email or phone number.';
+        contactInput.classList.add('is-invalid');
+        return;
+      }
+
+      contactInput.classList.remove('is-invalid');
+      contactHelp.innerText = 'Please enter a valid email or phone number.';
+      console.log(contact)
+      axios.get('http://localhost:8080/api/user/show/'+contact,{ headers: { 'Content-Type': 'application/json' } })
+        .then(function(response) {
+          console.log(JSON.stringify(response.data))
+          window.location.href = "p2.html?data=" + encodeURIComponent(JSON.stringify(response.data));
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    });
+
+    function validateContact(contact) {
+      const emailRegex = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;
+      const phoneRegex = /^\d{10}$/;
+
+      return emailRegex.test(contact) || phoneRegex.test(contact);
+    }
+  </script>
+</body>
+</html>

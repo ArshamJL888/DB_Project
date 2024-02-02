@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter response</title>
+</head>
+<body>
+ <p class="card-text" id="all"></p>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const data = JSON.parse(decodeURIComponent(urlParams.get('data')));
+  const all = document.getElementById('all');
+  all.innerText=JSON.stringify(data)
+
+  for (const key in data){
+          console.log(`${key} : ${data[key]}`)
+  }
+
+</script>
+
+</body>
+</html>

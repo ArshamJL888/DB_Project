@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Property Search</title>
+  <!DOCTYPE html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+		.container {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		}
+		.left {
+  flex: 50%;
+  background-color: #dadada;
+}
+
+.right {
+  flex: 50%;
+  background-color: #0091d5;
+}
+    </style>
+</head>
+<body>
+  <h1>Property Search</h1>
+<div class="container">
+  <div id="conditionWindow" class="left">
+    <h2>Condition</h2>
+    <div>
+            <label for="cooperative">Cooperative:</label>
+            <input type="checkbox" id="cooperative" name="cooperative" value="0">
+        </div>
+        <div>
+            <label for="barter">Barter:</label>
+            <input type="checkbox" id="barter" name="barter" value="0">
+        </div>
+        <div>
+            <label for="convertible">Convertible:</label>
+            <input type="checkbox" id="convertible" name="convertible" value="0">
+        </div>
+        <div>
+            <label for="presale">Presale:</label>
+            <input type="checkbox" id="presale" name="presale" value="0">
+        </div>
+        <div>
+            <label for="buildingLocation">Building Location:</label>
+            <input type="checkbox" id="buildingLocation" name="buildingLocation" value="0">
+        </div>
+        <div>
+            <label for="loan">Loan:</label>
+            <input type="checkbox" id="loan" name="loan" value="0">
+        </div>
+        <div>
+            <label for="newlyBuilt">Newly Built:</label>
+            <input type="checkbox" id="newlyBuilt" name="newlyBuilt" value="0">
+        </div>
+        <div>
+            <label for="equity">Equity:</label>
+            <input type="checkbox" id="equity" name="equity" value="0">
+        </div>
+        <div>
+            <label for="shoppingCenter">Shopping Center:</label>
+            <input type="checkbox" id="shoppingCenter" name="shoppingCenter" value="0">
+        </div>
+        <div>
+            <label for="mall">Mall:</label>
+            <input type="checkbox" id="mall" name="mall" value="0">
+        </div>
+  </div>
+
+  <div id="facilityWindow" class="right">
+    <h2>Facility</h2>
+   <div>
+            <label for="parking">Parking:</label>
+            <input type="checkbox" id="parking" name="parking" value="0">
+        </div>
+        <div>
+            <label for="lobby">Lobby:</label>
+            <input type="checkbox" id="lobby" name="lobby" value="0">
+        </div>
+        <div>
+            <label for="elevator">Elevator:</label>
+            <input type="checkbox" id="elevator" name="elevator" value="0">
+        </div>
+        <div>
+            <label for="pool">Pool:</label>
+            <input type="checkbox" id="pool" name="pool" value="0">
+        </div>
+        <div>
+            <label for="sauna">Sauna:</label>
+            <input type="checkbox" id="sauna" name="sauna" value="0">
+        </div>
+        <div>
+            <label for="gym">Gym:</label>
+            <input type="checkbox" id="gym" name="gym" value="0">
+        </div>
+        <div>
+            <label for="buildingGuard">Building Guard:</label>
+            <input type="checkbox" id="buildingGuard" name="buildingGuard" value="0">
+        </div>
+        <div>
+            <label for="balcony">Balcony:</label>
+            <input type="checkbox" id="balcony" name="balcony" value="0">
+        </div>
+        <div>
+            <label for="rooftopGarden">Rooftop Garden:</label>
+            <input type="checkbox" id="rooftopGarden" name="rooftopGarden" value="0">
+        </div>
+        <div>
+            <label for="airCondition">Air Condition:</label>
+            <input type="checkbox" id="airCondition" name="airCondition" value="0">
+        </div>
+        <div>
+            <label for="conferenceHall">Conference Hall:</label>
+            <input type="checkbox" id="conferenceHall" name="conferenceHall" value="0">
+        </div>
+        <div>
+            <label for="jacuzzi">Jacuzzi:</label>
+            <input type="checkbox" id="jacuzzi" name="jacuzzi" value="0">
+        </div>
+        <div>
+            <label for="centralAntenna">Central Antenna:</label>
+            <input type="checkbox" id="centralAntenna" name="centralAntenna" value="0">
+        </div>
+        <div>
+            <label for="remoteControlledDoor">Remote Controlled Door:</label>
+            <input type="checkbox" id="remoteControlledDoor" name="remoteControlledDoor" value="0">
+        </div>
+  </div>
+  </div>
+
+  <div id="formFields">
+    <h2>Other Fields</h2>
+    <label>
+      City:
+      <input type="text" value="" name="city">
+    </label>
+    <label>
+      Zone:
+      <input type="text" value="" name="zone">
+    </label>
+    <label>
+      Minimum Area:
+      <input type="number" value="0" name="minArea">
+    </label>
+    <label>
+      Maximum Area:
+      <input type="number" value="100000" name="maxArea">
+    </label>
+    <label>
+      Usage:
+      <input type="text" value="industrial" name="usage">
+    </label>
+    <label>
+      Number of Rooms:
+      <input type="number" value="0" name="numberOfRoom">
+    </label>
+    <label>
+      Minimum Age:
+      <input type="number" value="0" name="minAge">
+    </label>
+    <label>
+      Maximum Age:
+      <input type="number" value="100000" name="maxAge">
+    </label>
+    <label>
+      Minimum Pre-Cost Mortgage:
+      <input type="number" value="0" name="minPreCostMortgage">
+    </label>
+    <label>
+      Maximum Pre-Cost Mortgage:
+      <input type="number" value="10000000" name="maxPreCostMortgage">
+    </label>
+    <label>
+      Minimum Monthly Rent:
+      <input type="number" value="0" name="minMonthlyRent">
+    </label>
+    <label>
+      Maximum Monthly Rent:
+      <input type="number" value="10000000" name="maxMonthlyRent">
+    </label>
+    <label>
+      Minimum Sell Cost:
+      <input type="number" value="0" name="minSellCost">
+    </label>
+    <label>
+      Maximum Sell Cost:<input type="number" value="10000000" name="maxSellCost">
+    </label>
+    <label>
+      Property Type:
+      <input type="number" value="1" name="propertyType">
+    </label>
+  </div>
+
+  <div id="submitButton">
+    <button type="button" onclick="submitForm()">Submit</button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    function submitForm() {
+        // Get the selected checkboxes and build the condition and facility objects
+        var condition = {
+            PropertyId: 1,
+            cooperative: document.querySelector('input[name="cooperative"]').checked ? '1' : '0',
+            barter: document.querySelector('input[name="barter"]').checked ? '1' : '0',
+            convertible: document.querySelector('input[name="convertible"]').checked ? '1' : '0',
+            presale: document.querySelector('input[name="presale"]').checked ? '1' : '0',
+            buildingLocation: document.querySelector('input[name="buildingLocation"]').checked ? '1' : '0',
+            loan: document.querySelector('input[name="loan"]').checked ? '1' : '0',
+            newlyBuilt: document.querySelector('input[name="newlyBuilt"]').checked ? '1' : '0',
+            equity: document.querySelector('input[name="equity"]').checked ? '1' : '0',
+            shoppingCenter: document.querySelector('input[name="shoppingCenter"]').checked ? '1' : '0',
+            mall: document.querySelector('input[name="mall"]').checked ? '1' : '0'
+        };
+
+        var facility = {
+            propertyId: 1,
+            parking: document.querySelector('input[name="parking"]').checked ? '1' : '0',
+            lobby: document.querySelector('input[name="lobby"]').checked ? '1' : '0',
+            elevator: document.querySelector('input[name="elevator"]').checked ? '1' : '0',
+            pool: document.querySelector('input[name="pool"]').checked ? '1' : '0',
+            sauna: document.querySelector('input[name="sauna"]').checked ? '1' : '0',
+            gym: document.querySelector('input[name="gym"]').checked ? '1' : '0',
+            buildingGuard: document.querySelector('input[name="buildingGuard"]').checked ? '1' : '0',
+            balcony: document.querySelector('input[name="balcony"]').checked ? '1' : '0',
+            rooftopGarden: document.querySelector('input[name="rooftopGarden"]').checked ? '1' : '0',
+            airCondition: document.querySelector('input[name="airCondition"]').checked ? '1' : '0',
+            conferenceHall: document.querySelector('input[name="conferenceHall"]').checked ? '1' : '0',
+            jacuzzi: document.querySelector('input[name="jacuzzi"]').checked ? '1' : '0',
+            centralAntenna: document.querySelector('input[name="centralAntenna"]').checked ? '1' : '0',
+            remoteControlledDoor: document.querySelector('input[name="remoteControlledDoor"]').checked ? '1' : '0'
+        };
+
+        // Prepare the data to be sent to the API endpoint
+        let data1 = {
+            condition: condition,
+            facility: facility,
+            city: document.querySelector('input[name="city"]').value,
+            zone: document.querySelector('input[name="zone"]').value,
+            minArea: parseInt(document.querySelector('input[name="minArea"]').value),
+            maxArea: parseInt(document.querySelector('input[name="maxArea"]').value),
+            usage: document.querySelector('input[name="usage"]').value,
+            numberOfRoom: parseInt(document.querySelector('input[name="numberOfRoom"]').value),
+            minAge: parseInt(document.querySelector('input[name="minAge"]').value),
+            maxAge: parseInt(document.querySelector('input[name="maxAge"]').value),
+            minPreCostMortgage: document.querySelector('input[name="minPreCostMortgage"]').value ? parseInt(document.querySelector('input[name="minPreCostMortgage"]').value) : null,
+            maxPreCostMortgage: document.querySelector('input[name="maxPreCostMortgage"]').value ? parseInt(document.querySelector('input[name="maxPreCostMortgage"]').value) : null,
+            minMonthlyRent: document.querySelector('input[name="minMonthlyRent"]').value ? parseInt(document.querySelector('input[name="minMonthlyRent"]').value) : null,
+            maxMonthlyRent: document.querySelector('input[name="maxMonthlyRent"]').value ? parseInt(document.querySelector('input[name="maxMonthlyRent"]').value) : null,
+            minSellCost: parseInt(document.querySelector('input[name="minSellCost"]').value),
+            maxSellCost: parseInt(document.querySelector('input[name="maxSellCost"]').value),
+            propertyType: parseInt(document.querySelector('input[name="propertyType"]').value)
+        };
+
+        // Send the data to the API endpoint
+        // Add your code here to send the data to the API endpoint
+        const url = 'http://localhost:8080/api/property/show'
+        console.log(data1);
+        axios.post(url, JSON.stringify(data1), {headers: {'Content-Type': 'application/json'}})
+            .then(function (response) {
+                console.log(JSON.stringify(response.data))
+                window.location.href = "filterResponse.html?data=" + encodeURIComponent(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+  </script>
+</body>
+</html>

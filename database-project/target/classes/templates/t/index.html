@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Button Example</title>
+</head>
+<body>
+<h1>select Example</h1>
+<form action="#" th:action="@{/sub}" th:object="${text}" method="post" >
+    <label for="t1">Text 1:</label>
+    <input type="text" userId="t1"  th:field="*{text1}" />
+    <br />
+    <label for="t2">Text 2:</label>
+    <input type="text" userId="t2" th:field="*{text2}" />
+    <br />
+    <button type="submit">Submit</button>
+</form>
+
+<form action="#" th:action="@{/ch}" th:object="${text}" method="post">
+<label for="c1">i love cats:</label>
+<input type="checkbox" userId="c1"  th:field="*{check}" value="cat" />
+<br />
+<br />
+<button type="submit">Submit</button>
+</form>
+
+
+<br />
+<br />
+<br />
+<br />
+<form action="#" th:action="@{/sel}" th:object="${text}" method="post">
+<label for="s1">select a value:</label>
+    <select userId="s1" th:field="*{check}"><option value="">--Please choose an option--</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="hamster">Hamster</option>
+        <option value="parrot">Parrot</option>
+        <option value="spider">Spider</option>
+        <option value="goldfish">Goldfish</option>
+    </select>
+    <br />
+<br />
+<button type="submit">Submit</button>
+</form>
+<button onclick="clearFields()">Clear</button>
+<script>
+        function clearFields() {
+            document.getElementById("t1").value = "";
+            document.getElementById("t2").value = "";
+        }
+    </script>
+<h2>Result:</h2>
+<p>Text 1: <span th:text="${text.text1}"></span></p>
+<p>Text 2: <span th:text="${text.text2}"></span></p>
+</body>
+</html>
